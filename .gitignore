@@ -1,10 +1,58 @@
-# Python-generated files
+# Python
 __pycache__/
-*.py[oc]
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# uv
+.venv/
+venv/
+
+# Flask
+instance/
+.webassets-cache
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment variables
+.env.local
+.env.production
+.flaskenv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Build/Distribution
 build/
 dist/
-wheels/
-*.egg-info
+*.egg-info/
+.eggs/
 
-# Virtual environments
-.venv
+# Logs
+*.log
+logs/
+
+# Static files (if using webpack/build tools)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Uploads (adjust based on your needs)
+uploads/
+media/
+
+# Server setup (prevent overwriting during git pull)
+server-setup.sh
