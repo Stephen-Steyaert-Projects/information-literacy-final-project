@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% set active_page = 'references' %}
+
+{% block css %}
+<style>
+    .references-list {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .reference-item {
+        margin-bottom: 1.5rem;
+        padding-left: 2rem;
+        text-indent: -2rem;
+        line-height: 1.8;
+    }
+
+    .reference-item a {
+        color: #0d6efd;
+        text-decoration: none;
+    }
+
+    .reference-item a:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <h1 class="display-6">Works Cited</h1>
+        <p class="lead">
+        </p>
+</div>
+
+<div class="container">
+    <div class="references-list">
+        <p class="reference-item">
+            Brown, E. (2025, January 21). <em>New survey reveals traditional undergraduate education is not preparing students for the workforce</em>. Hult International Business School. <a href="https://www.hult.edu/blog/wi_skills_survey/" target="_blank" rel="noopener noreferrer">https://www.hult.edu/blog/wi_skills_survey/</a>
+        </p>
+
+        <p class="reference-item">
+            Cengage Group. (2025). <em>The Missing Link: Accountability in Career Readiness</em>. Cengage Group. <a href="https://www.cengagegroup.com/edtech-research/employability-report/" target="_blank" rel="noopener noreferrer">https://www.cengagegroup.com/edtech-research/employability-report/</a>
+        </p>
+
+        <p class="reference-item">
+            Laurent, A. (2026, March 8). <em>AI's Impact on graduate Jobs: A 2025 Data Analysis.</em> IntuitionLabs. <a href="https://intuitionlabs.ai/articles/ai-impact-graduate-jobs-2025" target="_blank" rel="noopener noreferrer">https://intuitionlabs.ai/articles/ai-impact-graduate-jobs-2025</a>
+        </p>
+
+        <p class="reference-item">
+            Mardis, M. A., Ma, J., Jones, F. R., Ambavarapu, C. R., Kelleher, H. M., Spears, L. I., & McClure, C. R. (2018). Assessing alignment between information technology educational opportunities, professional requirements, and industry demands. <em>Education and Information Technologies 23(4)</em>, 1547-1584.<a href="https://doi.org/10.1007/s10639-017-9678-y" target="_blank" rel="noopener noreferrer">https://doi.org/10.1007/s10639-017-9678-y</a>
+        </p>
+
+        <p class="reference-item">
+            World Economic Forum. (2025, January 7). <em>Future of Jobs Report 2025</em>. World Economic Forum. <a href="https://www.weforum.org/reports/the-future-of-jobs-report-2025/" target="_blank" rel="noopener noreferrer">https://www.weforum.org/reports/the-future-of-jobs-report-2025/</a>
+        </p>
+    </div>
+</div>
+{% endblock %}
