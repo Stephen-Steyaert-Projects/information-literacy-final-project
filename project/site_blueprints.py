@@ -18,3 +18,12 @@ def home():
             return render_template("home.html")
         return _cached()
     return render_template("home.html")
+
+@blueprint.route('/')
+def references():
+    if cache:
+        @cache.cached(timeout=86_400, key_prefix='references')
+        def _cached():
+            return render_template("references.html")
+        return _cached()
+    return render_template("references.html")
