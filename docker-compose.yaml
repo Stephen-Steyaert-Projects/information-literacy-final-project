@@ -4,18 +4,11 @@ services:
     restart: unless-stopped
     environment:
       - FLASK_ENV=production
-      - SECRET_KEY_FILE=/run/secrets/flask_secret_key
       - VIRTUAL_HOST=information-literacy.steyaert.xyz
       - VIRTUAL_PORT=8000
-    secrets:
-      - flask_secret_key
     networks:
       - nginx-proxy
 
 networks:
   nginx-proxy:
     external: true
-
-secrets:
-  flask_secret_key:
-    file: /srv/infolit/.secrets/flask_secret_key
