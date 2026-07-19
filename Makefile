@@ -1,4 +1,4 @@
-.PHONY: help dev dev-docker compose-deploy compose-up compose-down compose-logs compose-restart clean test deploy sync add
+.PHONY: help dev dev-docker compose-deploy compose-up compose-down compose-logs compose-restart clean test deploy sync add css
 
 help: ## Show this help message
 	@echo 'Usage: make [target]'
@@ -7,7 +7,13 @@ help: ## Show this help message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2}'
 
 dev: ## Run Flask development server locally
-	cd website && uv run python main.py
+	cd project && uv run python main.py
+
+css: ## Minify base.css into static/css/base.min.css
+	uv run --with rcssmin python3 -c "\
+import rcssmin, pathlib; \
+src = pathlib.Path('project/templates/static/base.css').read_text(); \
+pathlib.Path('project/static/css/base.min.css').write_text(rcssmin.cssmin(src))"
 
 dev-docker: ## Run Flask in Docker for development
 	docker compose -f docker-compose.development.yml up
@@ -43,10 +49,10 @@ clean: ## Clean up Python cache and Docker resources
 	docker system prune -af
 
 install: ## Install Python dependencies
-	cd website && uv sync
+	cd project && uv sync
 
 test: ## Run tests (when implemented)
-	cd website && uv run pytest
+	cd project && uv run pytest
 
 deploy: ## Alias for compose-deploy
 	@export $$(grep -v '^#' .env.production | xargs) && \
@@ -55,7 +61,7 @@ deploy: ## Alias for compose-deploy
 	docker image prune -af
 
 sync: ## Sync dependencies to lock file
-	cd website && uv sync
+	cd project && uv sync
 
 add: ## Add a new dependency (usage: make add PACKAGE=flask-cors)
-	cd website && uv add $(PACKAGE)
+	cd project && uv add $(PACKAGE)
