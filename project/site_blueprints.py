@@ -19,11 +19,38 @@ def home():
         return _cached()
     return render_template("home.html")
 
-@blueprint.route('/')
+@blueprint.route('/sources')
 def references():
     if cache:
         @cache.cached(timeout=86_400, key_prefix='references')
         def _cached():
-            return render_template("references.html")
+            return render_template("resources.html")
         return _cached()
-    return render_template("references.html")
+    return render_template("resources.html")
+
+@blueprint.route('/formulations')
+def formulations():
+    if cache:
+        @cache.cached(timeout=86_400, key_prefix='formulations')
+        def _cached():
+            return render_template("formulations.html")
+        return _cached()
+    return render_template("formulations.html")
+
+@blueprint.route('/theodicies')
+def theodicies():
+    if cache:
+        @cache.cached(timeout=86_400, key_prefix='theodicies')
+        def _cached():
+            return render_template("theodicies.html")
+        return _cached()
+    return render_template("theodicies.html")
+
+@blueprint.route('/biblical')
+def biblical():
+    if cache:
+        @cache.cached(timeout=86_400, key_prefix='biblical')
+        def _cached():
+            return render_template("biblical.html")
+        return _cached()
+    return render_template("biblical.html")
